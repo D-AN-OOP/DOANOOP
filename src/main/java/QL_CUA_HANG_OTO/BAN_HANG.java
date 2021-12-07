@@ -13,5 +13,7 @@ public class BAN_HANG extends NHAN_VIEN{
     public float TienLuong() {
         return (super.getLuongTieuChuan() + super.getLuongTieuChuan()*0.04f);
     }
-  
+    public static void main(String[] args) {
+        //code
+    }
 }
