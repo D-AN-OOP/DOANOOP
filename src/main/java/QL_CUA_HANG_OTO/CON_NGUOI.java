@@ -96,4 +96,5 @@ public class CON_NGUOI {
         System.out.println("Dia Chi: " + DiaChi);
         System.out.println("So Dien Thoai: " + SDT);
     }
+    
 }

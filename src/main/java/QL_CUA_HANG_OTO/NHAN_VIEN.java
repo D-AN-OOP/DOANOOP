@@ -6,6 +6,7 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
     private String MaSoNhanVien;
     private String CapBac;
     private float LuongTieuChuan;
+     static NHAN_VIEN[] nv = new NHAN_VIEN[100];
 
     public NHAN_VIEN() {
        
@@ -65,13 +66,17 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
         System.out.println("---------------------nhap danh sach nhan vien------------------");
         System.out.println("nhap so luong nhan vien :");
         int n = Integer.parseInt(sc.nextLine());
-        NHAN_VIEN nhan_vien[]= new NHAN_VIEN[n];
-       
+        
         for(int i=0;i<n;i++){
             
-            nhan_vien[i].NHAP();
+            nv[i].NHAP();
+        }
+        
+        for(int a=0;a<n;a++){
+            nv[a].XUAT();
         }
     }
+   
     public void update_nv(){
         
     }
@@ -81,4 +86,13 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
     
     public abstract float TienLuong();
     
+    public static void main(String[] args) {
+        NHAN_VIEN[] nv=new NHAN_VIEN[100];
+        nv[0]=new BAN_HANG();
+        nv[1]=new QUAN_LI();
+        nv[2]=new THU_NGAN();
+        nv[0].Insert_nv();
+        
+
+    }
 }
