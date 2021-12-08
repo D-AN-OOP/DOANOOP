@@ -41,13 +41,15 @@ public class CUA_HANG {
     }
     
     public void Nhap() {
-        Scanner sc = new Scanner(System.in);
+         Scanner sc = new Scanner(System.in);
         System.out.println("Moi Nhap Ten Cua Hang: ");
         TenCuaHang = sc.nextLine();
         System.out.println("Moi Nhap Dia Chi Cua Hang: ");
         DiaChi = sc.nextLine();
-        System.out.println("Moi Nhap So Co So: ");
+        do {            
+            System.out.println("Moi Nhap So Co So: ");
         SoCoSo = Integer.parseInt(sc.nextLine());
+        } while (SoCoSo <1);
     }
     
     public void Xuat() {

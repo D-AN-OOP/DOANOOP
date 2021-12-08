@@ -1,5 +1,6 @@
 package QL_CUA_HANG_OTO;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class CHI_TIET_HOA_DON extends HOA_DON{
@@ -47,14 +48,61 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
 
     @Override
     public void NHAP() {
-        Scanner sc = new Scanner(System.in);
+     Scanner sc = new Scanner(System.in);
         super.NHAP();
-        System.out.println("Nhap Ngay Lap: ");
-        NgayLap = sc.nextLine();
-        System.out.println("Nhap Loai Xe: ");
-        LoaiXe = sc.nextLine();
-        System.out.println("Nhap So Luong: ");
-        SoLuong = Integer.parseInt(sc.nextLine());
+         LocalDateTime localDate = LocalDateTime.now();
+            boolean a_ngaylap = false;
+            do {            
+            System.out.println("Nhap ngay lap theo dd/mm/yyyy(VD:02/02/2012):");
+            NgayLap=sc.nextLine();
+            if(NgayLap.length()>10){
+                a_ngaylap= false;
+            }else
+            {
+                 String [] arrray=NgayLap.split("/");
+                   if(Integer.parseInt(arrray[0]) <=31)
+                   {
+                        if(Integer.parseInt(arrray[1]) <=12)
+                        {
+                            if(Integer.parseInt(arrray[2]) <= localDate.getYear())
+                            {
+                                a_ngaylap=true;
+                            }
+                            else
+                            {
+                                a_ngaylap=false;
+                            }
+                        }
+                        else
+                        {
+                            a_ngaylap=false;
+                        }
+                 }
+                  else
+                 {
+                     a_ngaylap=false;
+                 }
+            }
+        } while (a_ngaylap!=true);
+            
+        
+                
+            boolean a = false;
+        do {            
+            System.out.println("Nhap Loai Xe: ");
+                LoaiXe = sc.nextLine();
+            if(LoaiXe.equalsIgnoreCase("4")||LoaiXe.equalsIgnoreCase("6")||
+                    LoaiXe.equalsIgnoreCase("bon banh")||LoaiXe.equalsIgnoreCase("sau banh")){
+                a=true;
+            }
+        
+        } while (a!=true);
+        do {            
+            System.out.println("Nhap So Luong: ");
+             SoLuong = Integer.parseInt(sc.nextLine());
+        } while (SoLuong <=0);
+       
+        
     }
     
     @Override
@@ -211,4 +259,5 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
             System.out.println("");
         }
     }
+  
 }

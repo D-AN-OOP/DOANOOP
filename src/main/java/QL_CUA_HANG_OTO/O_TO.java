@@ -92,10 +92,15 @@ public class O_TO {
         MauXe = sc.nextLine();
         System.out.println("Nhap Ma Xe: ");
         Maxe = sc.nextLine();
-        System.out.println("Nhap Toc do: ");
+        do {            
+            System.out.println("Nhap Toc do (VD:160): ");
         TocDo = Integer.parseInt(sc.nextLine());
-        System.out.println("Nhap Gia: ");
+       
+        } while (TocDo <0);
+        do {            
+            System.out.println("Nhap Gia (VD:1500): ");
         Gia = Float.parseFloat(sc.nextLine());
+        } while (Gia <0);
     }
     
     public void XUAT() {

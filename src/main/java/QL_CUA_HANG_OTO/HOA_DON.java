@@ -42,12 +42,18 @@ public class HOA_DON extends O_TO{
 
     public void NHAP() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Moi Ban Nhap Ma Hoa Don: ");
-        MaHoaDon = sc.nextLine();
-        System.out.println("Moi Ban Nhap Ma Nhan Vien: ");
+        do {            
+            System.out.println("Moi Ban Nhap Ma Hoa Don: ");
+             MaHoaDon = sc.nextLine();
+        } while (Integer.parseInt(MaHoaDon)< 0);
+        do {            
+            System.out.println("Moi Ban Nhap Ma Nhan Vien: ");
         MaNhanVien = sc.nextLine();
-        System.out.println("Moi Ban Nhap Ma Khach Hang: ");
+        } while (Integer.parseInt(MaNhanVien) <0);
+        do {            
+            System.out.println("Moi Ban Nhap Ma Khach Hang: ");
         MaKhachHang = sc.nextLine();
+        } while (Integer.parseInt(MaKhachHang)<0);
     }
     
     public void XUAT() {
@@ -55,4 +61,5 @@ public class HOA_DON extends O_TO{
         System.out.println("Ma Nhan Vien: " + MaNhanVien);
         System.out.println("Ma Khach Hang: " + MaKhachHang);
     }
+  
 }
