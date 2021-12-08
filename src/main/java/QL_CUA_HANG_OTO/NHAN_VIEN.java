@@ -60,18 +60,25 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
         System.out.println("MSNV: " + MaSoNhanVien);        
         System.out.println("Cap Bac: " + CapBac);
     }
-    public void CreateDSNV(){
+    public void Insert_nv(){
         Scanner sc=new Scanner(System.in);
         System.out.println("---------------------nhap danh sach nhan vien------------------");
         System.out.println("nhap so luong nhan vien :");
         int n = Integer.parseInt(sc.nextLine());
-        String arr_DSNV[]= new String[n];
+        NHAN_VIEN nhan_vien[]= new NHAN_VIEN[n];
        
         for(int i=0;i<n;i++){
             
-            arr_DSNV[i].NHAP();
+            nhan_vien[i].NHAP();
         }
+    }
+    public void update_nv(){
+        
+    }
+    public void delete_nv(){
+        
     }
     
     public abstract float TienLuong();
+    
 }
