@@ -9,7 +9,7 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
     private String CapBac;
     private float LuongTieuChuan;
      static NHAN_VIEN[] nv = new NHAN_VIEN[100];
-     int n;
+     private static int t=0;
 
     public NHAN_VIEN() {
        
@@ -134,16 +134,14 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
 //        
 //
 //    }
-    public void delete_nv(){
-       
-    }
+    
     
     public abstract float TienLuong();
     
-    public static void main(String[] args) {
+    public void Insert() {
       Scanner sc=new Scanner(System.in);
       //insert
-      int opt = 0,t=0;
+      int opt = 0;
         do {            
             System.out.println("Chon loai nhan vien :");
             System.out.println("1.QUAN LY");
@@ -166,5 +164,85 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
               
         
 
+    }
+    public void Update(){
+        Scanner sc=new Scanner(System.in);
+       int a;
+        do {
+            System.out.println("Moi Nhap Ma Nhan Vien Muon Sua Thong Tin: ");
+            a = Integer.parseInt(sc.nextLine());
+            if(a < 0)
+                System.out.println("Ban Da Nhap Sai Ma Nhan Vien, Vui Long Nhap Lai!");
+        } while(a <0);
+        
+        for(int o = 0; o < t; o++) {
+            if(o == a) {
+                if(nv[o] == null) 
+                    System.out.println("Ma Nhan Vien Khong Ton Tai, Xin Vui Long Nhap Lai!");
+        
+                System.out.println("Thong Tin Nhan Vien Hien Tai: ");
+                 nv[o].XUAT();
+            }
+        }
+        
+        for(int o = 0; o < t; o++) {
+            if(o == a) {
+                System.out.println("");
+                System.out.println("Nhap Ho Ten Nhan Vien : ");
+                String name = sc.nextLine();
+                System.out.println("Nhap Gioi Tinh : ");
+                String sex = sc.nextLine();
+                System.out.println("Nhap Nam Sinh: ");
+                String year = sc.nextLine();
+                System.out.println("Nhap Dia Chi: ");
+                String address = sc.nextLine();
+                System.out.println("Nhap So Dien Thoai : ");
+                String phone = sc.nextLine();
+               System.out.println("Nhap ma so nhan vien :");
+                String manv= sc.nextLine();
+                System.out.println("Nhap cap bac :");
+                String capbac= sc.nextLine();
+                System.out.println("Nhap luong tieu chuan : ");
+                float luong=sc.nextFloat();
+                
+                
+                nv[o].setHoTen(name);
+                nv[o].setGioiTinh(sex);
+                nv[o].setNamSinh(year);
+                nv[o].setDiaChi(address);
+                nv[o].setSDT(phone);
+                nv[o].setMaSoNhanVien(manv);
+                nv[o].setCapBac(capbac);
+                nv[o].setLuongTieuChuan(luong);
+            }
+        } 
+        System.out.println("Thong Tin Nhan Vien Sau Khi Sua: ");
+                 for(int c=0;c<t;c++){
+                     nv[c].XUAT();
+                     System.out.println("--------------------------");
+                 }
+    }
+    public void delete_nv(){
+        int x, o;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Moi Nhap Ma Nhan Vien Muon Xoa: ");
+            x = Integer.parseInt(sc.nextLine());
+            if(x < 0 && x < nv.length)
+                System.out.println("Ban Da Nhap Sai Ma Nhan Vien, Vui Long Nhap Lai!");
+        } while(x < 0 && x < nv.length);
+        
+        for (o = x; o < t; o++) {
+            nv[o] = nv[o+1];
+        }
+        t--;
+        
+      
+        System.out.println("Danh Sach Nhan vien sau khi xoa: ");
+        for(o = 0; o < t ; o++) {
+            System.out.println("" + (o+1) + ": ");
+            nv[o].XUAT();
+            System.out.println("");
+        }
     }
 }
