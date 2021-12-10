@@ -47,12 +47,16 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
     public void NHAP() {
         Scanner sc = new Scanner(System.in);
         super.NHAP(); 
-        System.out.println("Moi Ban Nhap MSNV: ");
-        MaSoNhanVien = sc.nextLine();
+        do {            
+            System.out.println("Moi Ban Nhap MSNV: ");
+             MaSoNhanVien = sc.nextLine();
+        } while (Integer.parseInt(MaSoNhanVien) <0);
         System.out.println("Moi Ban Nhap Cap Bac: ");
         CapBac = sc.nextLine();
-        System.out.println("Moi Ban Nhap Luong Tieu Chuan: ");
-        LuongTieuChuan = Float.parseFloat(sc.nextLine());
+        do {            
+             System.out.println("Moi Ban Nhap Luong Tieu Chuan: ");
+             LuongTieuChuan = Float.parseFloat(sc.nextLine());
+        } while (LuongTieuChuan <0);
     }
 
     @Override
