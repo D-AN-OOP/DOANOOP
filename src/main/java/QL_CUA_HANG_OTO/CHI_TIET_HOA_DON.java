@@ -50,7 +50,8 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         LocalDateTime localDate = LocalDateTime.now();
         boolean CheckDateN = false;
         int c;
-        do {
+        if(NgayLap.length() >=7) {
+            do {
             String arr[] = NgayLap.split("/");
             if(Integer.parseInt(arr[2]) <= localDate.getYear()) {
                 if (Integer.parseInt(arr[1]) <= 12 && Integer.parseInt(arr[1]) > 0) {
@@ -80,8 +81,8 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
                     }
                 }
             }
+        } while(!CheckDateN);
         }
-        while(CheckDateN);
         return CheckDateN;
     }
     
@@ -91,7 +92,7 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
             if(LoaiXe.equalsIgnoreCase("4") || LoaiXe.equalsIgnoreCase("6") || 
                     LoaiXe.equalsIgnoreCase("bon banh") || LoaiXe.equalsIgnoreCase("sau banh"))
                 l = true;
-        } while(l);
+        } while(!l);
         return l;
     }
     
@@ -102,12 +103,12 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         do {
             System.out.println("Nhap Ngay Lap Theo dd/mm/yyyy(VD:02/02/2012): ");
             NgayLap = sc.nextLine();
-        } while(CheckDate(NgayLap));
+        } while(!CheckDate(NgayLap));
         
         do {
             System.out.println("Nhap Loai Xe: ");
             LoaiXe = sc.nextLine();
-        } while(CheckTypeCar(LoaiXe));
+        } while(!CheckTypeCar(LoaiXe));
         
         do {
             System.out.println("Nhap So Luong: ");
@@ -131,12 +132,12 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         do {
             System.out.println("Nhap Ngay Lap Theo dd/mm/yyyy(VD:02/02/2012): ");
             NgayLap = sc.nextLine();
-        } while(CheckDate(NgayLap));
+        } while(!CheckDate(NgayLap));
         
         do {
             System.out.println("Nhap Loai Xe: ");
             LoaiXe = sc.nextLine();
-        } while(CheckTypeCar(LoaiXe));
+        } while(!CheckTypeCar(LoaiXe));
         
         do {
             System.out.println("Nhap So Luong: ");
