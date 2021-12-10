@@ -51,7 +51,6 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         boolean CheckDateN = false;
         int c;
         if(NgayLap.length() >=7) {
-            do {
             String arr[] = NgayLap.split("/");
             if(Integer.parseInt(arr[2]) <= localDate.getYear()) {
                 if (Integer.parseInt(arr[1]) <= 12 && Integer.parseInt(arr[1]) > 0) {
@@ -81,18 +80,15 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
                     }
                 }
             }
-        } while(!CheckDateN);
         }
         return CheckDateN;
     }
     
     boolean CheckTypeCar(String LoaiXe) {
         boolean l = false;
-        do {
-            if(LoaiXe.equalsIgnoreCase("4") || LoaiXe.equalsIgnoreCase("6") || 
-                    LoaiXe.equalsIgnoreCase("bon banh") || LoaiXe.equalsIgnoreCase("sau banh"))
+        if(LoaiXe.equalsIgnoreCase("4") || LoaiXe.equalsIgnoreCase("6") || 
+            LoaiXe.equalsIgnoreCase("bon banh") || LoaiXe.equalsIgnoreCase("sau banh")) 
                 l = true;
-        } while(!l);
         return l;
     }
     
@@ -103,11 +99,15 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         do {
             System.out.println("Nhap Ngay Lap Theo dd/mm/yyyy(VD:02/02/2012): ");
             NgayLap = sc.nextLine();
+            if(!CheckDate(NgayLap))
+                System.out.println("Moi Ban Nhap lai:");
         } while(!CheckDate(NgayLap));
         
         do {
             System.out.println("Nhap Loai Xe: ");
             LoaiXe = sc.nextLine();
+            if(!CheckTypeCar(LoaiXe))
+                System.out.println("Moi Ban Nhap lai:");
         } while(!CheckTypeCar(LoaiXe));
         
         do {
@@ -132,11 +132,15 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         do {
             System.out.println("Nhap Ngay Lap Theo dd/mm/yyyy(VD:02/02/2012): ");
             NgayLap = sc.nextLine();
+            if(!CheckDate(NgayLap))
+                System.out.println("Moi Ban Nhap lai:");
         } while(!CheckDate(NgayLap));
         
         do {
             System.out.println("Nhap Loai Xe: ");
             LoaiXe = sc.nextLine();
+            if(!CheckTypeCar(LoaiXe))
+                System.out.println("Moi Ban Nhap lai:");
         } while(!CheckTypeCar(LoaiXe));
         
         do {
@@ -199,7 +203,7 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         } while(id <0);
         
         for(int o = 0; o < i; o++) {
-            if(o == id) {
+            if(o == id - 1) {
                 if(oto[o] == null) 
                     System.out.println("Ma San Pham Khong Ton Tai, Xin Vui Long Nhap Lai!");
         
@@ -209,7 +213,7 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         }
         
         for(int o = 0; o < i; o++) {
-            if(o == id) {
+            if(o == id - 1) {
                 System.out.println("");
                 System.out.println("Nhap Ten: ");
                 String name = sc.nextLine();
@@ -268,7 +272,7 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         i--;
         
         for (o = x; o < k; o++) {
-            oto[o] = oto[o+1];
+            hd[o] = hd[o+1];
         }
         k--;
         

@@ -159,10 +159,8 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
             nv[t]=new BAN_HANG();
             nv[t++].NHAP();
         }
-              
-        
-
     }
+    
     public void Update(){
         Scanner sc=new Scanner(System.in);
        int a;
