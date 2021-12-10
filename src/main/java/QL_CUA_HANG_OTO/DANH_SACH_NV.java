@@ -15,16 +15,19 @@ public class DANH_SACH_NV extends NHAN_VIEN{
            Scanner sc=new Scanner(System.in);
       //insert
         
-      int opt;
+      int opt=0;
         do {            
             System.out.println("Chon loai nhan vien :");
             System.out.println("1.QUAN LY");
             System.out.println("2.THU NGAN");
             System.out.println("3.BAN HANG");
-            System.out.println("4.THOAT");
+  
             opt=Integer.parseInt(sc.nextLine());
-             System.out.println("Nhap thong tin nhan vien");
-            switch(opt){
+            
+            
+        } while (opt>3);
+         System.out.println("Nhap thong tin nhan vien");
+        switch(opt){
                 case 1:
                     nv[t]=new QUAN_LI();
                      nv[t++].NHAP();
@@ -40,7 +43,6 @@ public class DANH_SACH_NV extends NHAN_VIEN{
             default: System.out.println("Chon Lua Cua Ban Nam Ngoai Pham Vi Cho Phep");break;
                 
             }
-        } while (opt!=4);
         
        System.out.println("---------------Danh Sach Nhan Vien--------------");
         for(int a=0;a<t;a++){
@@ -123,9 +125,7 @@ public void delete_nv(){
             nv[o] = nv[o+1];
         }
         t--;
-        
-      
-        System.out.println("Danh Sach Nhan vien sau khi xoa: ");
+         System.out.println("Danh Sach Nhan vien sau khi xoa: ");
         for(o = 0; o < t ; o++) {
             System.out.println("" + (o+1) + ": ");
             nv[o].XUAT();
