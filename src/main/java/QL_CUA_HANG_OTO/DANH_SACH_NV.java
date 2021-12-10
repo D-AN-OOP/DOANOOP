@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class DANH_SACH_NV extends NHAN_VIEN{
     static NHAN_VIEN[] nv = new NHAN_VIEN[100];
     private static int t=0;
+
+    public DANH_SACH_NV() {
+    }
     
     public void Insert(){
         Scanner sc=new Scanner(System.in);
@@ -116,13 +119,5 @@ public class DANH_SACH_NV extends NHAN_VIEN{
     @Override
     public float TienLuong() {
        return 1.0f;
-    }
-    
-    public static void main(String[] args) {
-        DANH_SACH_NV b =new DANH_SACH_NV();
-        b.Insert();
-        b.Show();
-        b.Update();
-        b.Show();
     }
 }
