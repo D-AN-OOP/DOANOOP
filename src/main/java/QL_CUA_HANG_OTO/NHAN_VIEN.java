@@ -1,7 +1,5 @@
 package QL_CUA_HANG_OTO;
 
-import static QL_CUA_HANG_OTO.CHI_TIET_HOA_DON.hd;
-import static QL_CUA_HANG_OTO.CHI_TIET_HOA_DON.oto;
 import java.util.Scanner;
 
 public abstract class NHAN_VIEN extends CON_NGUOI{
@@ -232,7 +230,7 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
                 System.out.println("Ban Da Nhap Sai Ma Nhan Vien, Vui Long Nhap Lai!");
         } while(x < 0 && x < nv.length);
         
-        for (o = x; o < t; o++) {
+        for (o = x - 1; o < t; o++) {
             nv[o] = nv[o+1];
         }
         t--;

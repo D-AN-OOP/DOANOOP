@@ -71,14 +71,14 @@ public class CON_NGUOI {
         do {            
             System.out.println("Moi Ban Nhap Gioi Tinh: ");
             GioiTinh = sc.nextLine();
-            if(GioiTinh.equalsIgnoreCase("nam")|| GioiTinh.equalsIgnoreCase("nu")){
+            if(GioiTinh.equalsIgnoreCase("nam") || GioiTinh.equalsIgnoreCase("nu")){
                 a=true;
             }
-        } while (a!=true);
+        } while (a);
         do {            
-             System.out.println("Moi Ban Nhap Nam Sinh: ");
-        NamSinh = sc.nextLine();
-        } while (Integer.parseInt(NamSinh) > localDate.getYear() || Integer.parseInt(NamSinh)<=1 );
+            System.out.println("Moi Ban Nhap Nam Sinh: ");
+            NamSinh = sc.nextLine();
+        } while (Integer.parseInt(NamSinh) > localDate.getYear() || Integer.parseInt(NamSinh) <= 1900 );
         System.out.println("Moi Ban Nhap Dia Chi: ");
         DiaChi = sc.nextLine();
         String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";

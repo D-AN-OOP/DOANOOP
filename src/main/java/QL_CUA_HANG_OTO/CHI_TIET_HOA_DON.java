@@ -46,62 +46,73 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         this.SoLuong = SoLuong;
     }
 
+    boolean CheckDate(String NgayLap) {
+        LocalDateTime localDate = LocalDateTime.now();
+        boolean CheckDateN = false;
+        int c;
+        do {
+            String arr[] = NgayLap.split("/");
+            if(Integer.parseInt(arr[2]) <= localDate.getYear()) {
+                if (Integer.parseInt(arr[1]) <= 12 && Integer.parseInt(arr[1]) > 0) {
+                    c = Integer.parseInt(arr[1]);
+                    switch(c) {
+                        case 1:
+                        case 3:
+                        case 5:
+                        case 7:
+                        case 8:
+                        case 10:
+                        case 12:
+                            if(c <= 31 && c > 0)
+                                CheckDateN = true;
+                            break;
+                        case 4:
+                        case 6:
+                        case 9:
+                        case 11:
+                            if(c <= 30 && c > 0)
+                                CheckDateN = true;
+                            break;
+                        case 2:
+                            if(c <= 29 && c > 0)
+                                CheckDateN = true;
+                            break;
+                    }
+                }
+            }
+        }
+        while(CheckDateN);
+        return CheckDateN;
+    }
+    
+    boolean CheckTypeCar(String LoaiXe) {
+        boolean l = false;
+        do {
+            if(LoaiXe.equalsIgnoreCase("4") || LoaiXe.equalsIgnoreCase("6") || 
+                    LoaiXe.equalsIgnoreCase("bon banh") || LoaiXe.equalsIgnoreCase("sau banh"))
+                l = true;
+        } while(l);
+        return l;
+    }
+    
     @Override
     public void NHAP() {
-     Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         super.NHAP();
-         LocalDateTime localDate = LocalDateTime.now();
-            boolean a_ngaylap = false;
-            do {            
-            System.out.println("Nhap ngay lap theo dd/mm/yyyy(VD:02/02/2012):");
-            NgayLap=sc.nextLine();
-            if(NgayLap.length()>10){
-                a_ngaylap= false;
-            }else
-            {
-                 String [] arrray=NgayLap.split("/");
-                   if(Integer.parseInt(arrray[0]) <=31)
-                   {
-                        if(Integer.parseInt(arrray[1]) <=12)
-                        {
-                            if(Integer.parseInt(arrray[2]) <= localDate.getYear())
-                            {
-                                a_ngaylap=true;
-                            }
-                            else
-                            {
-                                a_ngaylap=false;
-                            }
-                        }
-                        else
-                        {
-                            a_ngaylap=false;
-                        }
-                 }
-                  else
-                 {
-                     a_ngaylap=false;
-                 }
-            }
-        } while (a_ngaylap!=true);
-            
+        do {
+            System.out.println("Nhap Ngay Lap Theo dd/mm/yyyy(VD:02/02/2012): ");
+            NgayLap = sc.nextLine();
+        } while(CheckDate(NgayLap));
         
-                
-            boolean a = false;
-        do {            
+        do {
             System.out.println("Nhap Loai Xe: ");
-                LoaiXe = sc.nextLine();
-            if(LoaiXe.equalsIgnoreCase("4")||LoaiXe.equalsIgnoreCase("6")||
-                    LoaiXe.equalsIgnoreCase("bon banh")||LoaiXe.equalsIgnoreCase("sau banh")){
-                a=true;
-            }
+            LoaiXe = sc.nextLine();
+        } while(CheckTypeCar(LoaiXe));
         
-        } while (a!=true);
-        do {            
+        do {
             System.out.println("Nhap So Luong: ");
-             SoLuong = Integer.parseInt(sc.nextLine());
-        } while (SoLuong <=0);
-       
+            SoLuong = Integer.parseInt(sc.nextLine());
+        } while(SoLuong <= 0);
         
     }
     
@@ -117,61 +128,27 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap Thong Tin Hoa Don: ");
         super.NHAP();
-         LocalDateTime localDate = LocalDateTime.now();
-            boolean a_ngaylap = false;
-            do {            
-            System.out.println("Nhap ngay lap theo dd/mm/yyyy(VD:02/02/2012):");
-            NgayLap=sc.nextLine();
-            if(NgayLap.length()>10){
-                a_ngaylap= false;
-            }else
-            {
-                 String [] arrray=NgayLap.split("/");
-                   if(Integer.parseInt(arrray[0]) <=31)
-                   {
-                        if(Integer.parseInt(arrray[1]) <=12)
-                        {
-                            if(Integer.parseInt(arrray[2]) <= localDate.getYear())
-                            {
-                                a_ngaylap=true;
-                            }
-                            else
-                            {
-                                a_ngaylap=false;
-                            }
-                        }
-                        else
-                        {
-                            a_ngaylap=false;
-                        }
-                 }
-                  else
-                 {
-                     a_ngaylap=false;
-                 }
-            }
-        } while (a_ngaylap!=true);
-          boolean a = false;
-        do {            
+        do {
+            System.out.println("Nhap Ngay Lap Theo dd/mm/yyyy(VD:02/02/2012): ");
+            NgayLap = sc.nextLine();
+        } while(CheckDate(NgayLap));
+        
+        do {
             System.out.println("Nhap Loai Xe: ");
-                LoaiXe = sc.nextLine();
-            if(LoaiXe.equalsIgnoreCase("4")||LoaiXe.equalsIgnoreCase("6")||
-                    LoaiXe.equalsIgnoreCase("bon banh")||LoaiXe.equalsIgnoreCase("sau banh")){
-                a=true;
-            }
+            LoaiXe = sc.nextLine();
+        } while(CheckTypeCar(LoaiXe));
         
-        } while (a!=true);
-        do {            
+        do {
             System.out.println("Nhap So Luong: ");
-             SoLuong = Integer.parseInt(sc.nextLine());
-        } while (SoLuong <=0);
+            SoLuong = Integer.parseInt(sc.nextLine());
+        } while(SoLuong <= 0);
         
-        if(LoaiXe.equalsIgnoreCase("BON BANH")) {
+        if(LoaiXe.equalsIgnoreCase("BON BANH") || LoaiXe.equalsIgnoreCase("4")) {
             oto[i] = new BON_BANH();
             oto[i].NHAP();
             i++;
         }
-        if(LoaiXe.equalsIgnoreCase("SAU BANH")) {
+        if(LoaiXe.equalsIgnoreCase("SAU BANH") || LoaiXe.equalsIgnoreCase("6")) {
             oto[i] = new SAU_BANH();
             oto[i].NHAP();
             i++;
@@ -301,5 +278,4 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
             System.out.println("");
         }
     }
-   
 }
