@@ -74,7 +74,7 @@ public class CON_NGUOI {
             if(GioiTinh.equalsIgnoreCase("nam") || GioiTinh.equalsIgnoreCase("nu")){
                 a=true;
             }
-        } while (a);
+        } while (a!=true);
         do {            
             System.out.println("Moi Ban Nhap Nam Sinh: ");
             NamSinh = sc.nextLine();
@@ -96,5 +96,8 @@ public class CON_NGUOI {
         System.out.println("Dia Chi: " + DiaChi);
         System.out.println("So Dien Thoai: " + SDT);
     }
-    
+    public static void main(String[] args) {
+        CON_NGUOI con_nguoi=new CON_NGUOI();
+        con_nguoi.NHAP();
+    }
 }

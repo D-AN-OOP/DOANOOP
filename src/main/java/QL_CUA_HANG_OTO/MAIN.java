@@ -3,7 +3,7 @@ package QL_CUA_HANG_OTO;
 import java.util.Scanner;
 
 public class MAIN {
-    
+  
     public static void menu() {
 		System.out.println("------------------Danh Sach Chuc Nang----------------------------");
 		System.out.println("1. Them Moi San Pham");
