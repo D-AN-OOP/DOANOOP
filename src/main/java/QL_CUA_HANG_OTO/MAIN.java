@@ -37,14 +37,18 @@ public class MAIN {
                     cthd.XoaSanPham();
                     break;
                 case 5:
+//                    MUA HÀNG
                     break;
                 case 6:
                     cthd.ShowDSHoaDon();
                     break;
-                case 7: 
+                case 7:
+//                    ĐIỀU PHỐI NHÂN VIÊN
+                    break;
+                case 8: 
                     System.out.println("Successful!");
                     break;
             }
-        } while(opt != 7);
+        } while(opt != 8);
     }
 }

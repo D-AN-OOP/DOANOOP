@@ -60,12 +60,8 @@ public abstract class NHAN_VIEN extends CON_NGUOI{
         super.XUAT(); 
         System.out.println("MSNV: " + MaSoNhanVien);        
         System.out.println("Cap Bac: " + CapBac);
-        System.out.println("Luong Tieu Chuan : "+LuongTieuChuan);
+        System.out.println("Luong Tieu Chuan : " + LuongTieuChuan);
+        System.out.println("Tong Tien Luong: " + TienLuong());
     }
     public abstract float TienLuong();
-    
-    public abstract void Insert();
-    public abstract void Update();
-    public abstract void delete_nv();
-    
 }
