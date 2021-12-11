@@ -240,21 +240,24 @@ public class CHI_TIET_HOA_DON extends HOA_DON{
         hd[i] = new CHI_TIET_HOA_DON(NgayLap, LoaiXe, SoLuong, super.getMaHoaDon(), super.getMaNhanVien(), super.getMaKhachHang());
     }
     
-    public void ChonSanPham() {
-        int c;
+    public void Search() {
+        int s;
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("Moi Nhap Id OTo Muon CHon: ");
-            c = Integer.parseInt(sc.nextLine());
-            if(c < 0 && c < i)
-                System.out.println("Ban Da Nhap Sai id oto, Vui Long Nhap Lai!");
-        } while(c <0 && c < i);
+            System.out.println("Nhap Id San Pham Muon Tim: ");
+            s = Integer.parseInt(sc.nextLine());
+            if(s < 0 || s > i)
+                System.out.println("Id Khong Ton Tai, Vui Long Nhap Lai!");
+        } while(s < 0 || s > i);
+        
+        System.out.println("San Pham Can Tim La: ");
         for(int o = 0; o < i; o++) {
-             if(o == c - 1) {
-                 oto[o].XUAT();
-             } 
+            if(o == s - 1) {
+                oto[o].XUAT();
+                break;
+            }
         }
-    }
+    } 
     
     public void XoaSanPham() {
         int x, o;

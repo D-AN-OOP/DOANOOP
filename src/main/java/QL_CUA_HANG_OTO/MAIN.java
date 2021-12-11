@@ -1,5 +1,6 @@
 package QL_CUA_HANG_OTO;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MAIN {
@@ -19,16 +20,19 @@ public class MAIN {
 		System.out.println("2. Hien Thi San Pham");
 		System.out.println("3. Sua San Pham");
 		System.out.println("4. Xoa San Pham");
-		System.out.println("5. Mua Hang");
-		System.out.println("6. Hien Thi Danh Sach Don Hang");
-                System.out.println("7. Dieu Phoi Nhan Vien");
-		System.out.println("8. Thoat.");
+                System.out.println("5. Tim San Pham");
+		System.out.println("6. Mua Hang");
+		System.out.println("7. Hien Thi Danh Sach Don Hang");
+                System.out.println("8. Dieu Phoi Nhan Vien");
+                System.out.println("9. Check Kho");
+		System.out.println("10. Thoat.");
 	}
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         CHI_TIET_HOA_DON cthd = new CHI_TIET_HOA_DON();
         DANH_SACH_NV dsnv = new DANH_SACH_NV();
+        KHO kho = new KHO();
         int opt, opt2;
         do {
             menu();
@@ -48,12 +52,15 @@ public class MAIN {
                     cthd.XoaSanPham();
                     break;
                 case 5:
-                    System.out.println("Da Mua Oto, Cua Hang Se Van Chuyen Den Dung Dia Chi cho Quy Khach, Tran Trong!");
+                    cthd.Search();
                     break;
                 case 6:
-                    cthd.ShowDSHoaDon();
+                    System.out.println("Da Mua Oto, Cua Hang Se Van Chuyen Den Dung Dia Chi cho Quy Khach, Tran Trong!");
                     break;
                 case 7:
+                    cthd.ShowDSHoaDon();
+                    break;
+                case 8:
                     menu2();
                     do {
                         System.out.println("Moi Nhap Lua Chon: ");
@@ -78,11 +85,15 @@ public class MAIN {
                         }
                         break;
                     } while (opt2 != 4);
-                case 8: 
+//                case 9:
+//                    kho.layThongTinTuFile(fileLoc);
+//                    break;
+                case 10: 
                     System.out.println("Successful!");
                     break;
                     default: System.out.println("Lua Chon Khong Hop Le"); break;
             }
-        } while(opt != 8);
+        } while(opt != 9);
     }
 }
+
