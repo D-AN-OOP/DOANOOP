@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class KHO {
-    public static final String DATA_LOC = "G:\\Software\\Code\\Java\\DOANOOP-master\\data.txt";
+    public static final String DATA_LOC = "C:\\Users\\windows10\\Documents\\NetBeansProjects\\DOANOOP\\src\\main\\java\\QL_CUA_HANG_OTO\\data.txt";
     private int SoLuong4Banh;
     private int SoLuong6Banh;
     private String[] DsLoaiXe = {"bon banh", "sau banh", "4", "6"};
